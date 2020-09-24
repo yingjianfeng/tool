@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="keyword">  <input type="button" @click="getinfo" value="查询"><br/>
+    <div class="x" v-for="(item) in info" v-html="item.name">
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  var myVue = new Vue({
+    el:"#app",
+    data(){
+      return{
+        keyword: '应剑锋',
+        info:[]
+      }
+    },
+    methods:{
+      getinfo(){
+        const that = this
+        axios.get("/getinfo/"+that.keyword)
+          .then(function(res){
+            that.info = res.data;
+          })
+      }
+    },
+    created(){
+      // this.getinfo()
+    }
+  })
+</script>
+<style>
+  .x{
+    border-bottom: 1px solid gray;
+  }
+</style>
+</html>

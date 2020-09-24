@@ -1,0 +1,83 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/index?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 2
+      max-active: 2
+      max-wait: 1000
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    #    root
+    password:
+    jedis:
+      pool:
+        max-active: 5
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+    timeout: 10000
+  activemq:
+    #ActiveMQ通讯地址
+    broker-url: tcp://localhost:61616
+    #用户名
+    user: admin
+    #密码
+    password: admin
+    #是否启用内存模式（就是不安装MQ，项目启动时同时启动一个MQ实例）
+    in-memory: false
+    packages:
+      #信任所有的包
+      trust-all: true
+    pool:
+      #是否替换默认的连接池，使用ActiveMQ的连接池需引入的依赖
+      enabled: false
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+##数据库配置
+##数据库database0地址
+#database0:
+#  url: jdbc:mysql://localhost:3306/shardingjdbc01?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#  ##数据库database0用户名
+#  username: root
+#  ##数据库database0密码
+#  password: root
+#  ##数据库database0驱动
+#  driverClassName: com.mysql.cj.jdbc.Driver
+#  ##数据库database0名称
+#  databaseName: shardingjdbc01
+#
+#  ##数据库database1地址
+#database1:
+#  url: jdbc:mysql://localhost:3306/shardingjdbc02?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#  ##数据库database1用户名
+#  username: root
+#  ##数据库database1密码
+#  password: root
+#  ##数据库database1驱动
+#  driverClassName: com.mysql.cj.jdbc.Driver
+#  ##数据库database1名称
+#  databaseName: shardingjdbc02
+
+
+
+#开启日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
+    cache-enabled: true
+  global-config:
+    db-config:
+      field-strategy: ignored
