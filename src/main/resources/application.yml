@@ -5,7 +5,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1:3306/index?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/jpa?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       initial-size: 2
@@ -40,10 +40,12 @@ spring:
       #是否替换默认的连接池，使用ActiveMQ的连接池需引入的依赖
       enabled: false
   jpa:
-    database: mysql
     show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #InnoDB才能支持事务
     hibernate:
       ddl-auto: none
+    database: mysql
+    generate-ddl: true
 
 ##数据库配置
 ##数据库database0地址

@@ -9,11 +9,11 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//@EnableScheduling
-@SpringBootApplication
-//@EnableJms //启动消息队列
-@EnableTransactionManagement(proxyTargetClass = true)
-@EnableConfigurationProperties
+////@EnableScheduling
+//@SpringBootApplication
+////@EnableJms //启动消息队列
+//@EnableTransactionManagement(proxyTargetClass = true)
+//@EnableConfigurationProperties
 public class ElaApplication {
 
     public static void main(String[] args) {
